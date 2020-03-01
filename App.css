@@ -1,0 +1,27 @@
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+}
+
+.search {
+    background-color: gray;
+    padding: 5px;
+    text-align: center;
+}
+
+.types {
+    background-color: lightgray;
+    padding: 5px;
+    text-align: center;
+}
+
+.printType {
+    width: 90px;
+}
+
+.bookType {
+    width: 140px;
+}
