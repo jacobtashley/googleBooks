@@ -16,7 +16,6 @@ export default class Search extends Component {
     }
 
     handleTitleChange = (e) => {
-        e.persist()
         this.setState({ title: e.target.value })
     }
 
@@ -30,7 +29,7 @@ export default class Search extends Component {
 
     render() {
         return (
-            <form className="search" onSubmit={this.handleSubmit}>
+            <form className="search" onSubmit= {e => this.props.submitForm(this.state.title, this.state.printType, this.state.bookType)}>
                 <label htmlFor="title"> Search: <input className='searchInput' type="text" id="title" onChange={this.handleTitleChange} value={this.state.title}></input></label>
                 <button type="submit">Search</button>
 
