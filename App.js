@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header'
 import Search from './Search';
+import BookList from './BookList'
 import './App.css'
 
 export class App extends React.Component {
@@ -8,13 +9,12 @@ export class App extends React.Component {
     books: []
   }
 
-  handleSubmitForm = ({title, printType, bookType}) => {
+  handleSubmitForm = (title) => {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}`)
       .then(response => response.json())
       .then(data => {
         console.log(data)
       })
-      .then(body => this.setState({books: body}))
       .catch(err => console.log(err))
   }
 
@@ -23,6 +23,7 @@ export class App extends React.Component {
       <div>
         <Header />
         <Search submitForm={this.handleSubmitForm} />
+        <BookList books={this.state.books} />
       </div>
     );
     }

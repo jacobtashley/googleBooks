@@ -29,7 +29,7 @@ export default class Search extends Component {
 
     render() {
         return (
-            <form className="search" onSubmit= {e => this.props.submitForm(this.state.title, this.state.printType, this.state.bookType)}>
+            <form className="search" onSubmit={this.handleSubmit}>
                 <label htmlFor="title"> Search: <input className='searchInput' type="text" id="title" onChange={this.handleTitleChange} value={this.state.title}></input></label>
                 <button type="submit">Search</button>
 
@@ -40,7 +40,7 @@ export default class Search extends Component {
                         </select>
                     </label>
                     <label htmlFor="bookType">Book Type: 
-                        <select className="bookType" value={this.state.bookType} onChange={this.handleBookTypeChange}>
+                        <select className="bookType" id="bookType" value={this.state.bookType} onChange={this.handleBookTypeChange}>
                             {types.map(v => <option value={v} key={v}>{v}</option>)}
                         </select>
                         </label>
