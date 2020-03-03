@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 
-const prints = ['all', 'books', 'magazines']
-const types =['partial','full','free-ebooks','paid-ebooks','ebooks',]
+let prints = ['all', 'books', 'magazines']
+let types =['partial','full','free-ebooks','paid-ebooks','ebooks',]
 
 export default class Search extends Component {
     state = {
         title: ' ',
+
         printType: prints[0],
-        bookType: '',
+        bookType: types[0],
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.submitForm(this.state)
-    }
-
-    handleTitleChange = (e) => {
-        this.setState({ title: e.target.value })
+    handleTitleChange = event => {
+        this.setState({
+            title: event.target.value
+        })
     }
 
     handlePrintTypeChange = (e) => {
@@ -25,6 +23,11 @@ export default class Search extends Component {
 
     handleBookTypeChange = (e) => {
         this.setState({bookType: e.target.value})
+    }
+
+    handleSubmit = event => {
+        alert(`${this.state.title} ${this.state.printType} ${this.state.bookType}`) 
+        event.preventDefault()
     }
 
     render() {
@@ -40,7 +43,7 @@ export default class Search extends Component {
                         </select>
                     </label>
                     <label htmlFor="bookType">Book Type: 
-                        <select className="bookType" id="bookType" value={this.state.bookType} onChange={this.handleBookTypeChange}>
+                        <select className="bookType" value={this.state.bookType} onChange={this.handleBookTypeChange}>
                             {types.map(v => <option value={v} key={v}>{v}</option>)}
                         </select>
                         </label>
