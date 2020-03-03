@@ -5,7 +5,7 @@ export default class BookList extends Component {
     render(){
         return(
             <ul>
-                <Book books={this.props.books}/>
+                <Book booklist={this.props.books}/>
             </ul>
         )
     }

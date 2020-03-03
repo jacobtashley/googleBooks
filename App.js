@@ -9,8 +9,8 @@ export class App extends React.Component {
     books: []
   }
 
-  componentDidMount(title) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}`)
+  componentDidMount() {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=cat`)
     .then( response => response.json() )
     .then(json => {
       console.log(json.items)
@@ -26,7 +26,7 @@ export class App extends React.Component {
         <div>
           <Header />
           <Search />
-          <BookList booklist={this.state.books}/>
+          <BookList booklist={this.props.books}/>
         </div>
       </div>
     );

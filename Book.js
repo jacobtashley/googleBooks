@@ -4,12 +4,12 @@ export default class Book extends Component {
     render(){
         return(
             this.books.map(item => (
-              <li key={this.props.item.id}>
-                Title: {this.props.item.volumeInfo.title} 
+              <li key={item.id}>
+                Title: {item.volumeInfo.title} 
                 <br></br>
-                Author: {this.props.item.volumeInfo.authors}
+                Author: {item.volumeInfo.authors}
                 <br></br>
-                Image:<img src= {this.props.item.volumeInfo.imageLinks.thumbnail} alt="a cat in hand"></img>
+                Image:<img src= {item.volumeInfo.imageLinks.thumbnail}></img>
               </li>
             ))
         )
