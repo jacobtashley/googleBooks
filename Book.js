@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Book extends Component {
     render(){
         return(
-            this.books.map(item => (
+            this.props.book.map(item => (
               <li key={item.id}>
                 Title: {item.volumeInfo.title} 
                 <br></br>

@@ -26,7 +26,7 @@ export class App extends React.Component {
         <div>
           <Header />
           <Search />
-          <BookList booklist={this.props.books}/>
+          <BookList booklist={this.props.books} />
         </div>
       </div>
     );
