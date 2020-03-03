@@ -1,32 +1,36 @@
 import React from 'react';
-import Header from './Header'
-import Search from './Search';
-import BookList from './BookList'
+import Search from './Search'
 import './App.css'
+import Header from './Header'
+import BookList from './BookList';
 
 export class App extends React.Component {
   state = {
     books: []
   }
 
-  handleSubmitForm = (title) => {
+  componentDidMount(title) {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${title}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
+    .then( response => response.json() )
+    .then(json => {
+      console.log(json.items)
+      this.setState({
+        books: json.items,
       })
-      .catch(err => console.log(err))
+    })
   }
 
   render() {
     return (
       <div>
-        <Header />
-        <Search submitForm={this.handleSubmitForm} />
-        <BookList books={this.state.books} />
+        <div>
+          <Header />
+          <Search />
+          <BookList booklist={this.state.books}/>
+        </div>
       </div>
     );
-    }
+  }
 }
 
 export default App;
