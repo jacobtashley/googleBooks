@@ -26,7 +26,7 @@ export default class Search extends Component {
     }
 
     handleSubmit = event => {
-        alert(`${this.state.title} ${this.state.printType} ${this.state.bookType}`) 
+        this.props.callApiNow()
         event.preventDefault()
     }
 

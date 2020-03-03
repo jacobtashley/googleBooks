@@ -9,8 +9,8 @@ export class App extends React.Component {
     books: []
   }
 
-  componentWillMount() {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=cat`)
+  callApi = () => {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.value}`)
     .then( response => response.json() )
     .then(json => {
       console.log(json.items)
@@ -19,14 +19,15 @@ export class App extends React.Component {
       })
     })
   }
+  
 
   render() {
     return (
       <div>
         <div>
           <Header />
-          <Search />
-          <BookList booklist={this.state.books} />
+          <Search callApiNow ={this.callApi}/>
+          <BookList booklist={this.state.books}/>
         </div>
       </div>
     );
@@ -34,8 +35,3 @@ export class App extends React.Component {
 }
 
 export default App;
-
-/*
-
-ListComponent => {lists.map(item => <ItemComponent item={item} />)}
-*/
